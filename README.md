@@ -5,6 +5,10 @@ This project is a Laravel application for tour agencies.
 You use it to manage tours, bookings, clients, and payments in one system.  
 The focus is speed, clarity, and daily operational control.
 
+## Project Status
+This project is currently in development mode.  
+Features are under active implementation and subject to change.
+
 ## Purpose
 You run tours.  
 You manage customers.  
