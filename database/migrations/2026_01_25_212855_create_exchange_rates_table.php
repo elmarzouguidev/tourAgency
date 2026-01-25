@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('exchange_rates', function (Blueprint $table) {
             $table->id();
-            $table->uuid();
+            $table->uuid()->nullable();
 
             $table->string('from_currency', 3);
             $table->string('to_currency', 3);

@@ -11,12 +11,16 @@
 |
 */
 
+use Illuminate\Support\Facades\Cache;
+
+// Apply to BOTH Unit and Feature tests
 pest()->extend(Tests\TestCase::class)
-    // ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
+    ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
     ->beforeEach(function () {
         app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+        Cache::flush();
     })
-    ->in('Feature');
+    ->in('Unit', 'Feature');
 
 /*
 |--------------------------------------------------------------------------
