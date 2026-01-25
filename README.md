@@ -11,8 +11,8 @@ You use it to manage tours, bookings, clients, and payments in one system.
 The focus is speed, clarity, and daily operational control.
 
 ## Project Status
-This project is currently in development mode.  
-Features are under active implementation and subject to change.
+
+> **Note:** This project is currently in development mode.  
 
 ## Purpose
 You run tours.  
