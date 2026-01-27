@@ -22,6 +22,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
 
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->unsignedInteger('capacity')->default(1);
             $table->unsignedInteger('quantity')->default(1);
             $table->text('description')->nullable();

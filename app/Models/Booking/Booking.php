@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Support\Str;
 class Booking extends Model
 {
     /** @use HasFactory<\Database\Factories\Booking\BookingFactory> */
@@ -55,7 +56,7 @@ class Booking extends Model
     {
         static::creating(function (Booking $booking) {
             if (empty($booking->booking_reference)) {
-                $booking->booking_reference = 'BK-' . now()->format('Ymd') . '-' . strtoupper(\Illuminate\Support\Str::random(4));
+                $booking->booking_reference = 'BK-' . now()->format('Ymd') . '-' . strtoupper(Str::random(4));
             }
         });
     }

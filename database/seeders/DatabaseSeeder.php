@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(TourPackageSeeder::class);
     }
 }

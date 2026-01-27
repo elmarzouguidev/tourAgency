@@ -88,6 +88,19 @@ class CitySeeder extends Seeder
             ['name' => 'Ifrane', 'country_id' => 1],
             ['name' => 'Azilal', 'country_id' => 1],
             ['name' => 'Khénifra', 'country_id' => 1],
+
+            // **Spain Cities**
+            ['name' => 'Madrid', 'country_id' => 2],
+            ['name' => 'Barcelona', 'country_id' => 2],
+            ['name' => 'Seville', 'country_id' => 2],
+            ['name' => 'Malaga', 'country_id' => 2],
+            ['name' => 'Valencia', 'country_id' => 2],
+
+            // **Portugal Cities**
+            ['name' => 'Lisbon', 'country_id' => 3],
+            ['name' => 'Porto', 'country_id' => 3],
+            ['name' => 'Faro', 'country_id' => 3],
+            ['name' => 'Albufeira', 'country_id' => 3],
         ];
 
         foreach ($cities as $city) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Tour;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tour\TourPackage;
@@ -9,9 +9,11 @@ use App\Models\Utilities\Country;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
-
-class SearchController extends Controller
+class TourController extends Controller
 {
+    
+
+
     public function index(Request $request)
     {
         $tours = QueryBuilder::for(TourPackage::class)
@@ -31,19 +33,29 @@ class SearchController extends Controller
                 }),
             ])
             ->allowedSorts(['price', 'created_at', 'duration_days'])
-            ->with(['cities.country', 'categories', 'prices', 'accommodations']) // Eager load
+            ->with(['cities.country:id,name,slug', 'categories:id,name,slug', 'prices', 'accommodations']) // Eager load
             ->where('is_active', true)
             ->paginate(12)
             ->appends(request()->query()); // Keep query params in pagination links
 
-         $countries = Country::select(['id','name','slug'])->get();    
 
-         $activities = Category::select(['id','name','slug'])->get();
+        $countries = Country::select(['id','name','slug'])->get();
 
+        $activities = Category::select(['id','name','slug'])->get();
+        
         if ($request->wantsJson()) {
             return response()->json($tours);
         }
 
         return view('tours.index', compact('countries','tours','activities'));
+    }
+
+    public function show(TourPackage $tour)
+    {
+        $tour->load(['categories:id,name,slug', 'cities:id,name,slug,country_id', 'prices','cities.country:id,name,slug']);
+        if (request()->wantsJson()) {
+            return response()->json($tour);
+        }
+        return view('tours.show', ['tour' => $tour]);
     }
 }

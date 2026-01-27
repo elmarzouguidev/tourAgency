@@ -21,7 +21,7 @@ class TourPackageFactory extends Factory
             'start_at' => fake()->date(),
             'end_at' => fake()->date(),
             'location' => fake()->address(),
-            'duration' => fake()->randomDigit(),
+            'duration_days' => fake()->randomDigit(),
             'excerpt' => fake()->paragraph(6),
             'description' => fake()->paragraph(20),
         ];

@@ -15,7 +15,9 @@ class CountrySeeder extends Seeder
     public function run(): void
     {
         $countries = [
-            ['name' => 'maroc', 'code' => 'MA'],
+            ['name' => 'Maroc', 'code' => 'MA', 'slug' => 'morocco'],
+            ['name' => 'Spain', 'code' => 'ES', 'slug' => 'spain'],
+            ['name' => 'Portugal', 'code' => 'PT', 'slug' => 'portugal'],
         ];
 
         foreach ($countries as $country) {

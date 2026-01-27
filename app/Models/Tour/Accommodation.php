@@ -3,14 +3,17 @@
 namespace App\Models\Tour;
 
 use App\Traits\GetModelByKeyName;
+use App\Traits\HasSlug;
 use App\Traits\UuidGenerator;
 use App\Traits\canBeBooked;
 use App\Traits\hasPrices;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Accommodation extends Model
+class Accommodation extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\Tour\AccommodationFactory> */
     use HasFactory;
@@ -19,10 +22,13 @@ class Accommodation extends Model
     use GetModelByKeyName;
     use hasPrices;
     use canBeBooked;
+    use HasSlug;
+    use InteractsWithMedia;
 
     protected $fillable = [
         'tour_package_id',
         'name',
+        'slug',
         'capacity',
         'quantity',
         'description',
@@ -35,7 +41,7 @@ class Accommodation extends Model
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
-    */
+     */
     protected function casts(): array
     {
         return [
@@ -51,5 +57,11 @@ class Accommodation extends Model
     public function tourPackage(): BelongsTo
     {
         return $this->belongsTo(TourPackage::class);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('accommodation_images')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg', 'image/svg', 'image/gif', 'image/bmp', 'image/tiff', 'image/avif']);
     }
 }

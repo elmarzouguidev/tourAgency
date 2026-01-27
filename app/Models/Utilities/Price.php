@@ -7,6 +7,7 @@ use App\Enums\Utilities\ConversionCurrencyType;
 use App\Enums\Utilities\CurrencyType;
 use App\Models\Booking\Booking;
 use App\Traits\GetModelByKeyName;
+use App\Traits\HasSlug;
 use App\Traits\PricesWithConversion;
 use App\Traits\UuidGenerator;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
@@ -18,7 +19,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Price extends Model
 {
-    //
 
     /** @use HasFactory<\Database\Factories\Utilities\PriceFactory> */
     use HasFactory;
@@ -26,6 +26,7 @@ class Price extends Model
     use UuidGenerator;
     use GetModelByKeyName;
     use PricesWithConversion;
+    use HasSlug;
 
     /**
      * Get the attributes that should be cast.
@@ -37,6 +38,7 @@ class Price extends Model
         return [
             'is_active' => 'boolean',
             'is_valid' => 'boolean',
+            'is_default' => 'boolean',
             'expired_at' => 'datetime',
             'options' => AsArrayObject::class,
             //'currency' => CurrencyType::class,
@@ -52,6 +54,7 @@ class Price extends Model
 
     public function bookings():HasMany
     {
+        
         return $this->hasMany(Booking::class);
     }
 

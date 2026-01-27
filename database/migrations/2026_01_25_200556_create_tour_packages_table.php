@@ -16,17 +16,23 @@ return new class extends Migration
             $table->id();
             $table->uuid();
 
-            $table->foreignIdFor(User::class)->index()->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(User::class)
+            ->index()
+            ->nullable()
+            ->constrained()
+            ->nullOnDelete();
 
             $table->string('title');
             $table->string('slug');
+
+            $table->string('thumbnail')->nullable();
 
             //Tour Availability
             $table->date('start_at')->nullable();
             $table->date('end_at')->nullable();
 
             $table->string('location')->nullable();
-            $table->unsignedInteger('duration')->default(0);
+            $table->unsignedInteger('duration_days')->default(0);
 
             $table->mediumText('excerpt')->nullable();
             $table->longText('description')->nullable();
@@ -34,6 +40,7 @@ return new class extends Migration
             $table->unsignedInteger('adults_count')->default(1);
             $table->unsignedInteger('children_count')->default(0);
 
+            $table->boolean('is_featured')->default(false);
             $table->booleanFields();
             $table->timestamps();
         });

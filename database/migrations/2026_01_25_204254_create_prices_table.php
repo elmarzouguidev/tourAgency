@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid();
 
             $table->morphs('priceable');
+            $table->boolean('is_default')->default(false);
 
             $table->string('name')->nullable();
             $table->string('slug')->nullable();

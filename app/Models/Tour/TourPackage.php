@@ -16,8 +16,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class TourPackage extends Model
+class TourPackage extends Model  implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\Tour\TourPackageFactory> */
     use HasFactory;
@@ -27,8 +29,8 @@ class TourPackage extends Model
     use hasPrices;
     use HasSlug;
     use canBeBooked;
-    use hasReviews; 
-
+    use hasReviews;
+    use InteractsWithMedia;
 
     public $slugName = 'title';
     /**
@@ -66,8 +68,15 @@ class TourPackage extends Model
         return $this->belongsToMany(City::class, 'tour_package_city');
     }
 
-    public function categories():BelongsToMany
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'category_tour_package');
+    }
+
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('tour_package_images')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp', 'image/jpg', 'image/svg', 'image/gif', 'image/bmp', 'image/tiff', 'image/avif']);
     }
 }
