@@ -21,15 +21,7 @@ class Booking extends Model
 
     protected $guarded = ['id'];
 
-    protected static function booted(): void
-    {
-        static::creating(function (Booking $booking) {
-            if (empty($booking->booking_reference)) {
-                $booking->booking_reference = 'BK-' . now()->format('Ymd') . '-' . strtoupper(\Illuminate\Support\Str::random(4));
-            }
-        });
-    }
-
+  
     /**
      * Get the attributes that should be cast.
      *
@@ -58,4 +50,13 @@ class Booking extends Model
     {
         return $this->belongsTo(User::class,'customer_id');
     }   
+
+      protected static function booted(): void
+    {
+        static::creating(function (Booking $booking) {
+            if (empty($booking->booking_reference)) {
+                $booking->booking_reference = 'BK-' . now()->format('Ymd') . '-' . strtoupper(\Illuminate\Support\Str::random(4));
+            }
+        });
+    }
 }

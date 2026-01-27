@@ -10,6 +10,7 @@ use App\Traits\GetModelByKeyName;
 use App\Traits\hasPrices;
 use App\Traits\HasSlug;
 use App\Traits\UuidGenerator;
+use App\Traits\hasReviews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,8 +26,8 @@ class TourPackage extends Model
     use GetModelByKeyName;
     use hasPrices;
     use HasSlug;
-    
     use canBeBooked;
+    use hasReviews; 
 
 
     public $slugName = 'title';
