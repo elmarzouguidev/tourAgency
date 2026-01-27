@@ -4,6 +4,10 @@
 </a>
 </p>
 
+## 💡 Inspiration
+This project takes inspiration from [UpTrek](https://uptrek.com/), a leading platform for retreat and wellness travel discovery.
+
+
 # VagaRetreat - Premium Tour Agency Platform
 
 VagaRetreat is a state-of-the-art tour agency management system designed for high-end travel operators. Built with Laravel and Alpine.js, it offers a seamless, interactive experience for both guests and administrators.
@@ -95,10 +99,6 @@ Private project. Intended for institutional use only.
 | **Dynamic Booking - Step 3** | ![Booking Step 3](ART/screen-5.png) |
 | **Dynamic Booking - Step 4** | ![Booking Step 4](ART/screen-6.png) |
 
-
----
-*Built with passion for the next generation of travel.*
-
 ## 🤝 Contributor
 
 **Elmarzougui Abdelghafour**
@@ -106,3 +106,7 @@ Private project. Intended for institutional use only.
 - **Github**: [elmarzouguidev](https://github.com/elmarzouguidev)
 - **LinkedIn**: [Abdelghafour Elmarzougui](https://www.linkedin.com/in/devscript/)
 - **X (Twitter)**: [@devscriptt](https://x.com/devscriptt)
+---
+*Built with passion for the next generation of travel.*
+
+
