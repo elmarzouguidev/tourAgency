@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://vaga-retreat.com" target="_blank">
+<a href="#" target="_blank">
 <img src="./logo.png" width='30%' alt="VagaRetreat Logo">
 </a>
 </p>
