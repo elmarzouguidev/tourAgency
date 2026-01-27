@@ -98,3 +98,11 @@ Private project. Intended for institutional use only.
 
 ---
 *Built with passion for the next generation of travel.*
+
+## 🤝 Contributor
+
+**Elmarzougui Abdelghafour**
+
+- **Github**: [elmarzouguidev](https://github.com/elmarzouguidev)
+- **LinkedIn**: [Abdelghafour Elmarzougui](https://www.linkedin.com/in/devscript/)
+- **X (Twitter)**: [@devscriptt](https://x.com/devscriptt)
