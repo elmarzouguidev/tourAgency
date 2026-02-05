@@ -14,7 +14,7 @@
                         <form action="{{ route('api.search.index') }}" method="GET">
                             <!-- Country Filter -->
                             <div class="mb-6">
-                                <h3 class="text-sm font-semibold text-gray-900 mb-3">Destinations</h3>
+                                <h3 class="text-sm font-semibold text-gray-900 mb-3">{{ __('sidebarmenu.dashboard') }}</h3>
                                 <div class="space-y-2">
                                     @foreach($countries as $country)
                                         <label class="flex items-center">

@@ -5,6 +5,7 @@ use App\Http\Controllers\Tour\TourController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Booking\BookingController;
 use App\Http\Controllers\CMS\ContactController;
+use Illuminate\Support\Facades\App;
 
 Route::get('/', [TourController::class, 'index'])->name('home');
 
@@ -25,3 +26,10 @@ Route::prefix('page')->name('cms.')->group(function () {
 
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contact-us', [ContactController::class, 'send'])->name('contact.post');
+
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+});
